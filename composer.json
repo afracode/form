@@ -1,0 +1,27 @@
+{
+    "name": "afracode/form",
+    "type": "library",
+    "description": "Quickly build an form",
+    "keywords": [
+        "afracode",
+        "form generator for laravel"
+    ],
+    "homepage": "https://github.com/afracode/form",
+    "license": "proprietary",
+    "authors": [
+        {
+            "name": "Ali Sharifi Neyestani",
+            "email": "ali@afracode.com"
+        },
+        {
+            "name": "Kourosh Sharifi Neyestani",
+            "email": "kourosh@afracode.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Afracode\\Form\\": "src"
+        },
+        "files": ["src/helpers.php"]
+    }
+}
