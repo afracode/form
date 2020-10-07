@@ -40,8 +40,16 @@ class CreateFormsTable extends Migration
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->nullable();
-            $table->foreignId('form_id')->nullable();
-            $table->json('body')->nullable();
+            $table->foreignId('form_id');
+            $table->json('body');
+            $table->timestamps();
+        });
+
+
+        Schema::create('field_form', function (Blueprint $table) {
+            $table->id();
+            $table->foreignId('field_id');
+            $table->foreignId('form_id');
             $table->timestamps();
         });
     }
@@ -54,5 +62,6 @@ class CreateFormsTable extends Migration
         Schema::dropIfExists('fields');
         Schema::dropIfExists('options');
         Schema::dropIfExists('orders');
+        Schema::dropIfExists('field_form');
     }
 }

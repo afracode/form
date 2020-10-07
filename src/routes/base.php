@@ -3,8 +3,8 @@
 
 Route::group(
     [
-        'middleware' => config('form.base.middleware'),
-        'prefix'     => config('form.base.prefix'),
+        'middleware' => config('base.middleware'),
+        'prefix'     => config('base.prefix'),
     ],
     function () {
         Route::get('/', function(){

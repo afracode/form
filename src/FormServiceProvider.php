@@ -33,20 +33,31 @@ class FormServiceProvider extends ServiceProvider
 
     public function publishFiles()
     {
+        $this->publishes([
+            __DIR__.'/config/' => config_path('form'),
+        ], 'config');
+
+        $this->publishes([
+            __DIR__.'/database/migrations/' => database_path('migrations'),
+        ], 'migration');
+
     }
 
     public function configFiles()
     {
-        $this->mergeConfigFrom(__DIR__ . '/config/form/base.php', 'form');
+        $this->mergeConfigFrom(__DIR__ . '/config/base.php', 'form');
     }
 
     public function routeFiles()
     {
-        include __DIR__ . '/routes/form.php';
+        include __DIR__ . '/routes/base.php';
     }
 
     public function controllerFiles()
     {
+//        $this->app->make('Afracode\Form\FormController');
+//        $this->app->make('Afracode\Form\FieldController');
+//        $this->app->make('Afracode\Form\OptionController');
 
     }
 
@@ -57,6 +68,6 @@ class FormServiceProvider extends ServiceProvider
 
     public function viewFiles()
     {
-        $this->loadViewsFrom(__DIR__ . '/resources/views', 'form');
+        $this->loadViewsFrom(__DIR__ . '/resources/views/', 'form');
     }
 }
